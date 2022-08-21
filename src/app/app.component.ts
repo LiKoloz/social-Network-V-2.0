@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'main-comp',
+  template: `
+    <router-outlet></router-outlet>`,
 })
 export class AppComponent {
-  title = 'social-Network-V-2.0';
 }
