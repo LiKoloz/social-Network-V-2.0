@@ -1,28 +1,33 @@
 <main class="flex flex-row place-content-center pt-60">
   <div class="basis-1/4"></div>
   <div class="basis-1/2  border-2 p-10 rounded-xl border-white">
-    <form>
+    <form [formGroup]="registrationForm" (ngSubmit)="submitRegistration()">
       <div class="grid gap-6 mb-6 md:grid-cols-2 ">
         <div>
           <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Имя</label>
-          <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Имя" required="">
+          <input formControlName="firstName" type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Имя" required="">
+          <p *ngIf="this.registrationForm.get('firstName')?.invalid && this.registrationForm.get('firstName')?.touched" class="text-sky-400">Неккоректное имя</p>
         </div>
         <div>
           <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Фамилия</label>
-          <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Фамилия" required="">
+          <input formControlName="lastName" type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Фамилия" required="">
+          <p *ngIf="this.registrationForm.get('secondName')?.invalid && this.registrationForm.get('secondName')?.touched" class="text-sky-400">Неккоректная фамилия</p>
         </div>
         <div>
           <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone number</label>
-          <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+79999999999" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="">
+          <input formControlName="phoneNumber" type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+79999999999" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="">
+          <p *ngIf="this.registrationForm.get('phoneNumber')?.invalid && this.registrationForm.get('phoneNumber')?.touched" class="text-sky-400">Неккоректный телефон</p>
         </div>
       </div>
       <div class="mb-6">
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@email.com" required="">
+        <input formControlName="email" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@email.com" required="">
+        <p *ngIf="this.registrationForm.get('email')?.invalid && this.registrationForm.get('email')?.touched" class="text-sky-400">Неккоректный телефон</p>
       </div>
       <div class="mb-6">
         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Пароль</label>
-        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required="">
+        <input formControlName="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required="">
+        <p *ngIf="this.registrationForm.get('password')?.invalid && this.registrationForm.get('password')?.touched" class="text-sky-400">Неккоректный телефон</p>
       </div>
       <div class="mb-6">
         <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Подтвердите пароль</label>
@@ -30,7 +35,7 @@
       </div>
       <div class="flex items-start mb-6">
       </div>
-      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+      <button [disabled]="this.registrationForm.invalid || (this.registrationForm.get('password') != this.registrationForm.get('password2'))" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
     </form>
   </div>
   <div class="basis-1/4"></div>
