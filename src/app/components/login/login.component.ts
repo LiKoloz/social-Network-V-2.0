@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {LoginService} from "../../services/login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -8,10 +10,14 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
   loginForm!:FormGroup
-  constructor() {
+  constructor(
+    private router: Router,
+    private loginService: LoginService) {
   }
   submitLogin(){
-    console.log(this.loginForm.value)
+    this.loginService.login(this.loginForm.value).subscribe({
+      next: () => this.router.navigate(['news'])
+    })
   }
   ngOnInit(): void {
     this.loginForm = new FormGroup({
