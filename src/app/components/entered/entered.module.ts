@@ -17,7 +17,7 @@ import { NewsComponent } from './components/news/news.component';
     GroupsComponent,
     PageComponent,
     GroupIdComponent,
-    NewsComponent
+    NewsComponent,
   ],
   imports: [
     CommonModule,

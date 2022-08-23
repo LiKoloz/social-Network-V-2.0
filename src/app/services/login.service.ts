@@ -21,11 +21,14 @@ export class LoginService {
   }
 
   login(userInfo: {email:string, password:string}) : Observable<string | boolean>{
-    if(userInfo.email == "123@emal.com") {
+    if(userInfo.email == 'admin@emal.com' && userInfo.password == 'admin123') {
       this.setToken('123')
       return of(true)
     }
 
     return throwError(() => Error('Failed login'))
+  }
+  logout(){
+    this.router.navigate(['login'])
   }
 }

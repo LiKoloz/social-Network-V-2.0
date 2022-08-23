@@ -17,16 +17,18 @@ export class LoginComponent implements OnInit {
   submitLogin(){
     this.loginService.login(this.loginForm.value).subscribe({
       next: () => this.router.navigate(['entered']),
-      error: (err)=> alert(err.message)
+      error: (err)=> alert('Неправильный логин или пароль')
     })
   }
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      'email': new FormControl('',[Validators.required, Validators.email]),
+      'email': new FormControl('', [Validators.required, Validators.email]),
       'password': new FormControl('',
         [Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)])
-    })
+          Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)])
+    });
+  if(this.loginService.isLoggedIn()){
+    this.router.navigate(['entered'])
   }
-
+  }
 }

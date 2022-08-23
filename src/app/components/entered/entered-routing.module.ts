@@ -5,6 +5,7 @@ import {GroupsComponent} from "./components/groups/groups.component";
 import {PageComponent} from "./components/page/page.component";
 import {GroupIdComponent} from "./components/group-id/group-id.component";
 import {NewsComponent} from "./components/news/news.component";
+import {FriendsComponent} from "./components/friends/friends.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent,
@@ -13,7 +14,8 @@ const routes: Routes = [
       {path: ':id', component: PageComponent},
       {path: 'groups/:id', component: GroupIdComponent},
       {path: 'news', component: NewsComponent},
-
+      {path: 'friends', component: FriendsComponent},
+      {path: '', redirectTo: 'news', pathMatch: 'full'}
     ]
   }
 ];
