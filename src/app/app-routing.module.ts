@@ -8,6 +8,10 @@ const appRoutes: Routes = [
   {path: '', component: AppComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
+  {
+    path: 'entered',
+    loadChildren: () => import('./components/entered/entered.module').then((m) => m.EnteredModule)
+  },
   {path: '**', redirectTo: 'login'}
 ];
 

@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   }
   submitLogin(){
     this.loginService.login(this.loginForm.value).subscribe({
-      next: () => this.router.navigate(['news'])
+      next: () => this.router.navigate(['entered']),
+      error: (err)=> alert(err.message)
     })
   }
   ngOnInit(): void {
