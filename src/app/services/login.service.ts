@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
-import {catchError, Observable, of, throwError} from 'rxjs';
+import { Observable, of, throwError} from 'rxjs';
+import {User} from "../../user";
+import {HttpService} from "./http.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private httpService: HttpService
+              ) { }
 
   setToken(token: string){
     localStorage.setItem('token', token)
@@ -20,9 +25,10 @@ export class LoginService {
     return this.getToken() !== null
   }
 
+
   login(userInfo: {email:string, password:string}) : Observable<string | boolean>{
-    if(userInfo.email == 'admin@emal.com' && userInfo.password == 'admin123') {
-      this.setToken('123')
+    if(userInfo.email == ('admin@email.com') && userInfo.password == 'admin123') {
+      this.setToken('entered!')
       return of(true)
     }
 
