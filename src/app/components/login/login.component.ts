@@ -12,12 +12,14 @@ export class LoginComponent implements OnInit {
   loginForm!:FormGroup
   constructor(
     private router: Router,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    ) {
   }
+
   submitLogin(){
     this.loginService.login(this.loginForm.value).subscribe({
       next: () => this.router.navigate(['entered']),
-      error: (err)=> alert('Неправильный логин или пароль')
+      error: (err)=> alert(err.message())
     })
   }
   ngOnInit(): void {
@@ -30,5 +32,6 @@ export class LoginComponent implements OnInit {
   if(this.loginService.isLoggedIn()){
     this.router.navigate(['entered'])
   }
+
   }
 }
