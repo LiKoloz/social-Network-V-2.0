@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import { Observable, of, throwError} from 'rxjs';
 import {HttpService} from "./http.service";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class LoginService {
 
   constructor(
     private router: Router,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private http: HttpClient,
   ) { }
 
   setToken(token: string){
@@ -25,14 +27,21 @@ export class LoginService {
   }
 
 
-  login(userInfo: {email:string, password:string}) : Observable<string | boolean>{
-    if(userInfo.email == 'admin@email.com' && userInfo.password == 'admin123') {
+  login(userInfo: {email:string, password:string},result : boolean) : Observable<string | boolean>{
+    if(result) {
       this.setToken('entered!')
       return of(true)
     }
-
-    return throwError(() => Error('Failed login'))
+      return throwError(() => Error('Неправильный логин или пароль'))
   }
+
+  getInfo(userInfo: {email: string, password: string}) {
+    const params = new HttpParams()
+      .set('email', userInfo.email)
+      .set('password', userInfo.password)
+    return this.http.get('http://localhost:4201/api', {params});
+  }
+
   logout(){
     this.router.navigate(['login'])
   }
