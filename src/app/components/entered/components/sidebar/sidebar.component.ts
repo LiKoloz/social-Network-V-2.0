@@ -8,7 +8,7 @@ import {LoginService} from "../../../../services/login.service";
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  id: number = 1000;
+  id: number = 100;
 
   constructor(private loginService: LoginService) { }
 

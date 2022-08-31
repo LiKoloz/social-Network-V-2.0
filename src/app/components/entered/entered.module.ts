@@ -8,6 +8,7 @@ import { GroupsComponent } from './components/groups/groups.component';
 import { PageComponent } from './components/page/page.component';
 import { GroupIdComponent } from './components/group-id/group-id.component';
 import { NewsComponent } from './components/news/news.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { NewsComponent } from './components/news/news.component';
     PageComponent,
     GroupIdComponent,
     NewsComponent,
+    MessagesComponent,
   ],
   imports: [
     CommonModule,
