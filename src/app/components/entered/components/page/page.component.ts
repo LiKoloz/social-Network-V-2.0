@@ -13,7 +13,9 @@ export class PageComponent implements OnInit {
   phone: string = '+79529919823';
   email: string = 'admin@mail.com';
   city: string = "Moskow"
-  posts: string[] = ['asdasdasdsd', 'qwewqewqeweq']
+  posts: string[] = ['asdasdasdsd', `qwewqewqsdfasaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  kjl;l;aaaaaaaa
+  ;l'k;'eweq`,'2213213', '213213', '213213', '213213','2213213','2213213','2213213','2213213','2213213','2213213','2213213']
 
   id: number | undefined;
   private subscription: Subscription;

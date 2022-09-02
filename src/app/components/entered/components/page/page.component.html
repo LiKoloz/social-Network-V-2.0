@@ -8,7 +8,6 @@
       <div class="h-3 mb-5">Возраст: {{age}}</div>
       <div class="h-3 mb-5">Email: {{email}}</div>
       <div class="h-3 mb-5">Номер телефона: {{phone}}</div>
-      <div class="h-3 mb-5">Город: {{city}}</div>
     </div>
   </header>
 
@@ -22,22 +21,25 @@
   </form>
 
   <main class="m-50 p-1/2  flex flex-col w-full h-full relative text-center">
-    <div role="status" class="" *ngFor="let post of posts">
-      <div class="h-2.5 rounded-full max-w-[640px] mt-1/5 mx-auto">{{post }}</div>
-      <div class="flex justify-center items-center mt-4">
-        <img src="https://doctor-veterinar.ru/media/k2/items/cache/675d28c04794e3c683f4419536c4c15f_XL.jpg" class="mr-2 w-10 h-10 rounded-full" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <div class="w-20 h-2.5  rounded-full mr-3">3</div>
+    <div role="status" class="m-5 overflow-auto " *ngFor="let post of posts">
+      <div class="h-5 rounded-full overflow-auto max-w-[640px] mt-1/5 mx-5 text-2xl text-gray-900 dark:text-white h-full text-center">{{post}}</div>
+      <div class="flex justify-center items-center mt-5">
+        <img src="https://doctor-veterinar.ru/media/k2/items/cache/675d28c04794e3c683f4419536c4c15f_XL.jpg" class="mr-2 w-10 h-10 rounded-full m-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <div class="w-20 h-2.5  rounded-full ">3</div>
         <div class="w-24 h-2 rounded-ful ">4</div>
       </div>
       <span class="sr-only">Loading...</span>
     </div>
     <div>
-      <p class="text-2xl text-gray-900 dark:text-white h-full text-center">asdasdsad</p>
     </div>
   </main>
+
 </div>
 
 
+<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 fixed bottom-2 right-2">
+  <svg aria-hidden="true" class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">↑</svg>
+</button>
 
 
 
