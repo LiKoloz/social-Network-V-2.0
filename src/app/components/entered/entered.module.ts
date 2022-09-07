@@ -9,6 +9,10 @@ import { PageComponent } from './components/page/page.component';
 import { GroupIdComponent } from './components/group-id/group-id.component';
 import { NewsComponent } from './components/news/news.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ChildComponent} from "./components/page/child.component";
 
 
 @NgModule({
@@ -20,10 +24,12 @@ import { MessagesComponent } from './components/messages/messages.component';
     GroupIdComponent,
     NewsComponent,
     MessagesComponent,
+    ChildComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    EnteredRoutingModule
+    EnteredRoutingModule,
   ]
 })
 export class EnteredModule { }

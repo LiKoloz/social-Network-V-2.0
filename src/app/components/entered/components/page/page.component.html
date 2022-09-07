@@ -11,36 +11,32 @@
     </div>
   </header>
 
+  <child-comp></child-comp>
 
-  <form class="m-10">
-    <label class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Post</label>
-    <div class="relative">
-      <input class="block p-4 pl-10 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-200 dark:placeholder-gray-200 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full h-1/2" placeholder="Расскажите что-нибудь о себе..." required="">
-      <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Отправить</button>
-    </div>
-  </form>
-
-  <main class="m-50 p-1/2  flex flex-col w-full h-full relative text-center">
-    <div role="status" class="m-5 overflow-auto " *ngFor="let post of posts">
-      <div class="h-5 rounded-full overflow-auto max-w-[640px] mt-1/5 mx-5 text-2xl text-gray-900 dark:text-white h-full text-center">{{post}}</div>
+  <main class="m-50 p-1/2 flex flex-col w-full h-full relative text-center">
+    <div role="status" class="m-5 overflow-auto border-2 rounded-full ring-offset-1 outline-1"  *ngFor="let post of posts">
+      <div class="h-5 rounded-full overflow-auto max-w-[640px] mt-1/5 mx-5 text-2xl text-gray-900 dark:text-white h-full text-center">{{post.message}}</div>
       <div class="flex justify-center items-center mt-5">
         <img src="https://doctor-veterinar.ru/media/k2/items/cache/675d28c04794e3c683f4419536c4c15f_XL.jpg" class="mr-2 w-10 h-10 rounded-full m-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <div class="w-20 h-2.5  rounded-full ">3</div>
-        <div class="w-24 h-2 rounded-ful ">4</div>
       </div>
-      <span class="sr-only">Loading...</span>
+      <div class="flex justify-items-start">
+        <div class="basis-1/4"></div>
+        <div class="basis-1/4">
+          <button class="btn-secondary like-review" (click)="addLike(post)">
+            <i class="fa fa-heart" aria-hidden="true">Like {{post.likes}}</i>
+          </button>
+        </div>
+        <div class="basis-1/4">
+          <div class="basis-1/4">
+            <button class="btn-secondary like-review" (click)="addDisike(post)">
+              <i class="fa fa-heart" aria-hidden="true">Dislike {{post.disLikes}}</i>
+            </button>
+          </div>
+        </div>
+        <div class="basis-1/4"></div>
+      </div>
     </div>
     <div>
     </div>
   </main>
-
 </div>
-
-
-<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 fixed bottom-2 right-2">
-  <svg aria-hidden="true" class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">↑</svg>
-</button>
-
-
-
-
