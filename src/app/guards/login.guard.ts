@@ -36,6 +36,7 @@ export class LoginGuard implements CanActivate, CanDeactivate<unknown> {
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
    if(confirm("Вы точно хотите выйти?")){
      localStorage.removeItem('token')
+     localStorage.clear()
      return true
    }
    return false

@@ -10,7 +10,7 @@
             <a routerLink="/registration" class="font-medium text-indigo-600 hover:text-indigo-500"> зарегистрируйтесь </a>
           </p>
         </div>
-        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" class="mt-8 space-y-6" >
+        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" (ngSubmit)="getUser()" class="mt-8 space-y-6" >
           <input type="hidden" name="remember" value="true">
           <div class="rounded-md shadow-sm -space-y-px">
             <div>

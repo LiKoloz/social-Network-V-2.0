@@ -42,6 +42,14 @@ export class LoginService {
     return this.http.get('http://localhost:4201/api', {params});
   }
 
+  getUser(user: {email: string, password: string}){
+    const params = new HttpParams()
+      .set('email', user.email)
+      .set('password', user.password)
+
+    return this.http.get('http://localhost:4201/api/user', {params})
+  }
+
   logout(){
     this.router.navigate(['login'])
   }

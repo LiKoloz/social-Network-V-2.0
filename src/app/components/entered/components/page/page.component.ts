@@ -13,14 +13,12 @@ export class PageComponent {
 
   form1: FormGroup;
 
-  a = new Post('121212', 5, 6)
-
-  fullName: string = '123';
-  age: number = 100;
-  phone: string = '+79529919823';
-  email: string = 'admin@mail.com';
-  city: string = "Moskow"
-  posts: Post[] = [this.a]
+  data : any = localStorage.getItem('data')
+  fullName: string | null = localStorage.getItem('fullName');
+  age: string | null =  localStorage.getItem('age');
+  phone: string | null =  localStorage.getItem('phone');
+  email: string | null =  localStorage.getItem('email');
+  posts: Post[] = [new Post('adad')]
   id: number | undefined;
   likes: number = 5
   Dislikes: number =5
@@ -32,6 +30,7 @@ export class PageComponent {
     this.form1 = new FormGroup({
       newPost: new FormControl(),
     })
+
   }
 
   addDisike(post: Post){

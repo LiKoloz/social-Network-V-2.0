@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../../services/login.service";
 import {Router} from "@angular/router";
 import {HttpService} from "../../services/http.service";
+import {FullUser} from "../../fullUser";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,6 @@ export class LoginComponent implements OnInit{
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private httpService: HttpService,
     ) {
   }
 
@@ -32,6 +32,30 @@ export class LoginComponent implements OnInit{
       error: (err) => alert(err.message)
     })
   }
+
+  fullUser!: FullUser
+
+  async getUser(){
+    this.loginService.getUser(this.loginForm.value).subscribe({
+      next: (data: any) => {
+        console.log(this.loginForm.value)
+       let fullName = data.firstName + ' ' + data.secondName
+
+        localStorage.setItem('data',data)
+
+        localStorage.setItem("firstName", data.firstName)
+        localStorage.setItem("secondName", data.secondName)
+        localStorage.setItem("fullName", fullName)
+        localStorage.setItem("email", data.email)
+        localStorage.setItem("age", data.age)
+        localStorage.setItem("phone", data.phone)
+        localStorage.setItem("post", data.post )
+
+        console.log(data)
+      }
+    })
+  }
+
 
     result: boolean = false
 
