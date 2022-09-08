@@ -41,15 +41,13 @@ export class LoginComponent implements OnInit{
         console.log(this.loginForm.value)
        let fullName = data.firstName + ' ' + data.secondName
 
-        localStorage.setItem('data',data)
-
         localStorage.setItem("firstName", data.firstName)
         localStorage.setItem("secondName", data.secondName)
         localStorage.setItem("fullName", fullName)
         localStorage.setItem("email", data.email)
         localStorage.setItem("age", data.age)
         localStorage.setItem("phone", data.phone)
-        localStorage.setItem("post", data.post )
+        localStorage.setItem("id", data.id)
 
         console.log(data)
       }
